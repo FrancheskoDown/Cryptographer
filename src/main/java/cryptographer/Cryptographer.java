@@ -2,7 +2,6 @@ package cryptographer;
 
 import java.io.*;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 
 public class Cryptographer {
@@ -70,7 +69,6 @@ public class Cryptographer {
             try (OutputStream outputStream = new FileOutputStream("." + File.separatorChar + "output" + File.separatorChar + outputFile.toString())) {
                 {
                     byte[] key = cryptographerKey.getBytes(); // Array of key characters
-                    byte[] res = new byte[inputFile.toString().length()]; // Array of encoded characters
                     byte cur = (byte) inputStream.read(); // Current byte in input file
                     byte next = (byte) inputStream.read(); // Next byte in input file
                     int i = 0; // Character counter
