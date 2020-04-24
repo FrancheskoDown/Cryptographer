@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class CryptographerLauncherTest {
@@ -37,15 +37,13 @@ class CryptographerLauncherTest {
 
     @Test
     void exceptionTests() {
-        String [] args = {"-o","sc", "./src/test/resources/input/Exception"};
-        Assertions.assertThrows(IllegalArgumentException.class, () -> CryptographerLauncher.main(args));
-        String [] args1 = {"-c","-o", "./src/test/resources/input/Exception"};
+        String [] args1 = {"-c", "LIL", "-d", "lil", "-o", "Output", "./src/test/resources/input/Exception"};
         Assertions.assertThrows(IllegalArgumentException.class, () -> CryptographerLauncher.main(args1));
-        String [] args2 = {"-c", "1", "-d" , "1", "-o", "sad", "./src/test/resources/input/Exception"};
+        String [] args2 = {"-c", "-o", "out", "./src/test/resources/input/Exception"};
         Assertions.assertThrows(IllegalArgumentException.class, () -> CryptographerLauncher.main(args2));
-        String [] args3 = {"-d", "a", "./src/test/resources/input/Exception"};
+        String [] args3 = {};
         Assertions.assertThrows(IllegalArgumentException.class, () -> CryptographerLauncher.main(args3));
-        String [] args4 = {};
+        String [] args4 = {"-j", "-o", "out", "./src/test/resources/input/Exception"};
         Assertions.assertThrows(IllegalArgumentException.class, () -> CryptographerLauncher.main(args4));
 
     }

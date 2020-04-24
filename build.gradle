@@ -35,8 +35,7 @@ test {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'args4j', name: 'args4j', version: '2.0.25'
+    compile group: 'args4j', name: 'args4j', version: '2.33'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
     implementation('com.google.guava:guava:28.2-jre')
