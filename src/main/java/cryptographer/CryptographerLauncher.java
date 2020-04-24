@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 public class CryptographerLauncher {
-    @Option(name = "-c", metaVar = "CodeKey" ,required = true, usage = "Task", forbids = {"-d"})
+    @Option(name = "-c", metaVar = "CodeKey" , usage = "Task", forbids = {"-d"})
     private String codeKey; // Key of coding
 
-    @Option(name = "-d", metaVar = "DecodeKey", required = true, usage = "Task", forbids = {"-c"})
+    @Option(name = "-d", metaVar = "DecodeKey", usage = "Task", forbids = {"-c"})
     private String decodeKey; // Key of decoding
 
     @Option(name = "-o", metaVar = "OutputName", usage = "Output name")
@@ -47,6 +47,10 @@ public class CryptographerLauncher {
         Cryptographer cryptographer = new Cryptographer();
 
         try {
+            if (codeKey == null && decodeKey == null) {
+                System.err.println("Use one of -c or -d to use task");
+                return;
+            }
             if (codeKey != null) cryptographer.encrypt(inputPath, codeKey, outputPath);
             if (decodeKey != null) cryptographer.decrypt(inputPath, decodeKey, outputPath);
 
