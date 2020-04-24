@@ -74,7 +74,7 @@ public class Cryptographer {
      * @param cryptographerKey - Encoding key
      * @throws IOException
      */
-    private byte[] byteKeyGenerator (String cryptographerKey) throws IOException {
+    private byte[] byteKeyGenerator (String cryptographerKey) {
         char[] keyArray = cryptographerKey.toCharArray(); // Array of key characters
         byte[] byteKeyArray = new byte[cryptographerKey.length()]; // Array of byte key characters
         char cur; // Current key char
